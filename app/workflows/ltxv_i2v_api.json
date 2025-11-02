@@ -1,0 +1,34 @@
+{
+  "1": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "INPUT_IMAGE"
+    }
+  },
+  "2": {
+    "class_type": "LTXVideo_I2V",
+    "inputs": {
+      "image": ["1", 0],
+      "text": "INPUT_PROMPT",
+      "negative": "INPUT_NEGATIVE",
+      "num_frames": 96,
+      "fps": 24,
+      "seed": 0
+    }
+  },
+  "3": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "video": ["2", 0],
+      "filename_prefix": "ltxv_i2v",
+      "fps": 24
+    }
+  },
+  "4": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": ["2", 1],
+      "filename_prefix": "ltxv_frames"
+    }
+  }
+}
